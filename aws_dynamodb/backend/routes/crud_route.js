@@ -3,13 +3,12 @@ const CRUDController = require("../controller/crud_controller");
 const router = express.Router();
 
 // Adding in routes for basic CRUD operations
-// Reviews routes
-router.post('/reviews', CRUDController.addReview);
-router.get('/reviews/:moduleId', CRUDController.getReviewsByModuleId);
 
+// Routes for posting reviews and replies
+router.post('/review', CRUDController.addReview);
+router.post('/reply', CRUDController.addReply);
 
-// Replies routes
-router.post('/replies', CRUDController.addReply);
-router.get('/replies/review/:reviewId', CRUDController.getRepliesByReviewId);
+// Routes for getting reviews and replies
+router.get('/review/:moduleId', CRUDController.getReviewsAndRepliesByModuleId);
 
 module.exports = router;
